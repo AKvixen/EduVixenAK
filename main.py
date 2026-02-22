@@ -1,13 +1,39 @@
 import streamlit as st
 
-# This must be the VERY FIRST line of code
-st.set_page_config(page_title="EduVixenAK", layout="wide")
+# MUST BE FIRST: Setup the page appearance
+st.set_page_config(page_title="EduVixenAK", page_icon="🦊", layout="wide")
 
-st.write("## 🦊 EduVixenAK: Connection Successful")
-st.balloons()
+# Sidebar Navigation for all 10 Tools
+st.sidebar.title("🦊 EduVixenAK")
+st.sidebar.markdown("---")
+menu = [
+    "🏠 Dashboard", 
+    "📺 Presentation Gen", 
+    "📝 Quiz Creator", 
+    "📄 Paper Maker", 
+    "🔍 Paper Checker", 
+    "📊 Classroom Data", 
+    "📧 Admin Assistant", 
+    "🌿 Mind Map & Flow", 
+    "🗂️ Flash Cards", 
+    "👁️ Smart Visual Assistant", 
+    "📂 My Projects"
+]
+choice = st.sidebar.radio("Select a Tool", menu)
 
-st.sidebar.title("Dashboard")
-st.sidebar.info("System is now connected to GitHub.")
+# --- HOME DASHBOARD ---
+if choice == "🏠 Dashboard":
+    st.title("Welcome to EduVixenAK")
+    st.write("Your all-in-one AI teaching ecosystem is online.")
+    
+    # Visual Status Cards
+    col1, col2 = st.columns(2)
+    with col1:
+        st.info("### 🚀 Quick Start\nSelect a tool from the sidebar to begin generating content.")
+    with col2:
+        st.success("### 📂 Project Safety\nAll generations are automatically tracked in your 'My Projects' folder.")
 
-if st.button("Check Server Status"):
-    st.write("Server is healthy and responding!")
+# --- TOOL PLACEHOLDERS (We will fill these next) ---
+else:
+    st.title(choice)
+    st.info(f"The {choice} module is ready. Which feature should we code first?")
